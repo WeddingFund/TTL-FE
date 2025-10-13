@@ -21,7 +21,6 @@ const router = createBrowserRouter([
       if (!isAuthenticated()) {
         return redirect("/landing");
       }
-      // return redirect("/feed");
       return null; // 사용자 정보 return 하면 각 페이지에서 접근 가능?
     },
     Component: Layout,

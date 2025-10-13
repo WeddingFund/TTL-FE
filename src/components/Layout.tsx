@@ -1,7 +1,8 @@
 import React from "react";
 import { Outlet, NavLink } from "react-router-dom";
 import styled from "styled-components";
-// import Icon from "./Icon";
+
+import Icon from "./Icon";
 
 const Layout = () => {
   return (
@@ -9,11 +10,21 @@ const Layout = () => {
       <SearchHeader>검색창</SearchHeader>
       <BodyWrapper>
         <MenuBar>
-          <MenuItem to="/mypage">MyPage</MenuItem>
-          <MenuItem to="/alerts">Alerts</MenuItem>
-          <MenuItem to="/feed">Feed</MenuItem>
-          <MenuItem to="/map">Map</MenuItem>
-          <MenuItem to="/studio">Studio</MenuItem>
+          <MenuItem to="/mypage">
+            <Icon name="User" size={24} />
+          </MenuItem>
+          <MenuItem to="/alerts">
+            <Icon name="Alert" size={24} />
+          </MenuItem>
+          <MenuItem to="/feed">
+            <Icon name="Feed" size={24} />
+          </MenuItem>
+          <MenuItem to="/map">
+            <Icon name="Map" size={24} />
+          </MenuItem>
+          <MenuItem to="/studio">
+            <Icon name="Pen" size={24} />
+          </MenuItem>
         </MenuBar>
         <ContentWrapper>
           <Outlet />
