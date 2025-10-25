@@ -1,7 +1,13 @@
-import React from "react";
+import { useSearchContext } from "../context/SearchContext";
 
 const Feed = () => {
-  return <div>Feed</div>;
+  const { searchKey, searchFilterIds } = useSearchContext();
+  return (
+    <div>
+      {searchKey}
+      {searchFilterIds}
+    </div>
+  );
 };
 
 export default Feed;
