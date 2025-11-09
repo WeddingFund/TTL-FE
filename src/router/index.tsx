@@ -6,6 +6,7 @@ import Landing from "../pages/Landing";
 import MyPage from "../pages/MyPage";
 import Studio from "../pages/Studio";
 import Map from "../pages/Map";
+import Post from "../pages/Post";
 
 const isAuthenticated = () => {
   return Boolean(localStorage.getItem("login")); // 실제 앱에선 쿠키나 전역 상태 사용
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
       {
         path: "map",
         Component: Map,
+      },
+      {
+        path: "post/:postId",
+        Component: Post,
       },
     ],
   },
