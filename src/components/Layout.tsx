@@ -180,6 +180,7 @@ const MenuItem = styled(NavLink)`
 
 const ContentWrapper = styled.div`
   width: 100%;
+  height: calc(100vh - 120px);
   box-shadow: 0 0 2px 2px rgba(217, 217, 217, 0.25);
   border-radius: 10px;
 `;
