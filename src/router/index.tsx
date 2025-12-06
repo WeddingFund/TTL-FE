@@ -7,6 +7,7 @@ import MyPage from "../pages/MyPage";
 import Studio from "../pages/Studio";
 import Map from "../pages/Map";
 import Post from "../pages/Post";
+import CreateStudio from "../pages/CreateStudio";
 
 const isAuthenticated = () => {
   return Boolean(localStorage.getItem("login")); // 실제 앱에선 쿠키나 전역 상태 사용
@@ -39,8 +40,12 @@ const router = createBrowserRouter([
         Component: Alerts,
       },
       {
-        path: "studio",
+        path: "studio/:studioId",
         Component: Studio,
+      },
+      {
+        path: "studio/create",
+        Component: CreateStudio,
       },
       {
         path: "map",

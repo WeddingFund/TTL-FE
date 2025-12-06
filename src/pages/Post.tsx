@@ -1,5 +1,5 @@
 import { useState, useCallback, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, NavLink } from "react-router-dom";
 import styled from "styled-components";
 import Icon from "../components/Icon";
 import Tag from "../components/Tag";
@@ -199,10 +199,12 @@ const Post = () => {
       </div>
       <div className="contents">
         <div className="post">
-          <div className="studio">
-            <img src="exex" alt="exex" />
-            {studio?.name}
-          </div>
+          <NavLink to={`/studio/${studio?.id}`}>
+            <div className="studio">
+              <img src="exex" alt="exex" />
+              {studio?.name}
+            </div>
+          </NavLink>
           <div className="counts">
             <div className="info">
               <Icon name="Heart" size={20} />

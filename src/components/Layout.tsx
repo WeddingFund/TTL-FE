@@ -106,7 +106,7 @@ const Layout = () => {
             <MenuItem to="/map">
               <Icon name="Map" size={24} />
             </MenuItem>
-            <MenuItem to="/studio">
+            <MenuItem to="/studio/0">
               <Icon name="Pen" size={24} />
             </MenuItem>
           </MenuBar>
