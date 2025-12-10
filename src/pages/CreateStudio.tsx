@@ -1,17 +1,17 @@
 import { useState, useRef, useCallback } from "react";
 import styled from "styled-components";
 
-interface StudioInfo {
-  name: string;
-  content: string;
-  contact: string;
-  //   profileImageUrl: string;
-  latitude: number;
-  longitude: number;
-}
+// interface StudioInfo {
+//   name: string;
+//   content: string;
+//   contact: string;
+//   //   profileImageUrl: string;
+//   latitude: number;
+//   longitude: number;
+// }
 
 const CreateStudio = () => {
-  const [studioInfo, setStudioInfo] = useState<StudioInfo>();
+  // const [studioInfo, setStudioInfo] = useState<StudioInfo>();
   const [profileImageUrl, setProfileImageUrl] = useState<string>("");
 
   const fileRef = useRef<HTMLInputElement>(null);
