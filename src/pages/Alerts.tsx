@@ -1,5 +1,7 @@
+import ComingSoon from "./ComingSoon";
+
 const Alerts = () => {
-  return <div>Alerts</div>;
+  return <ComingSoon />;
 };
 
 export default Alerts;

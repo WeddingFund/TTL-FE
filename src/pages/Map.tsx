@@ -1,5 +1,6 @@
+import ComingSoon from "./ComingSoon";
 const Map = () => {
-  return <div>Map</div>;
+  return <ComingSoon />;
 };
 
 export default Map;

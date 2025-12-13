@@ -1,5 +1,7 @@
+import ComingSoon from "./ComingSoon";
+
 const MyPage = () => {
-  return <div>MyPage</div>;
+  return <ComingSoon />;
 };
 
 export default MyPage;
