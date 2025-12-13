@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { useSearchContext } from "../context/SearchContext";
 import Icon from "../components/Icon";
 import Tag from "../components/Tag";
+import EXImg from "../assets/tatto-example.jpeg";
 
 type Category = {
   id: number;
@@ -53,7 +54,7 @@ const Feed = () => {
                 code: "GENRE_EX",
               },
             ],
-            images: ["https://example.com/image1.png"],
+            images: [EXImg],
             isLiked: false,
             likeCount: 131,
             viewCount: 1300,
@@ -71,7 +72,7 @@ const Feed = () => {
                 code: "OLD_SCHOOL",
               },
             ],
-            images: ["https://example.com/image1.png"],
+            images: [EXImg],
             isLiked: false,
             likeCount: 131,
             viewCount: 1300,
@@ -89,7 +90,7 @@ const Feed = () => {
                 code: "OLD_SCHOOL",
               },
             ],
-            images: ["https://example.com/image1.png"],
+            images: [EXImg],
             isLiked: false,
             likeCount: 131,
             viewCount: 1300,
@@ -107,7 +108,7 @@ const Feed = () => {
                 code: "OLD_SCHOOL",
               },
             ],
-            images: ["https://example.com/image1.png"],
+            images: [EXImg],
             isLiked: false,
             likeCount: 131,
             viewCount: 1300,
@@ -125,7 +126,7 @@ const Feed = () => {
                 code: "OLD_SCHOOL",
               },
             ],
-            images: ["https://example.com/image1.png"],
+            images: [EXImg],
             isLiked: false,
             likeCount: 131,
             viewCount: 1300,
@@ -143,7 +144,7 @@ const Feed = () => {
                 code: "OLD_SCHOOL",
               },
             ],
-            images: ["https://example.com/image1.png"],
+            images: [EXImg],
             isLiked: false,
             likeCount: 131,
             viewCount: 1300,
@@ -229,6 +230,12 @@ const Post = styled.div`
     height: 243px;
     border: 1px solid #d9d9d9;
     border-radius: 5px;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 5px;
+    }
   }
   .contents {
     display: flex;

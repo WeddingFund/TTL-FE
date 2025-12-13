@@ -4,6 +4,7 @@ import styled from "styled-components";
 import Icon from "../components/Icon";
 import Tag from "../components/Tag";
 import Input from "../components/Input";
+import EXImg from "../assets/tatto-example.jpeg";
 
 type Category = {
   id: number;
@@ -78,12 +79,7 @@ const Post = () => {
               code: "GENRE_EX",
             },
           ],
-          images: [
-            "https://example.com/image1.png",
-            "https://example.com/image1.png",
-            "https://example.com/image1.png",
-            "https://example.com/image1.png",
-          ],
+          images: [EXImg, EXImg, EXImg],
           isLiked: false,
           likeCount: 131,
           viewCount: 1300,
@@ -201,7 +197,7 @@ const Post = () => {
         <div className="post">
           <NavLink to={`/studio/${studio?.id}`}>
             <div className="studio">
-              <img src="exex" alt="exex" />
+              <img src={EXImg} alt="exex" />
               {studio?.name}
             </div>
           </NavLink>
@@ -251,6 +247,10 @@ const Wrapper = styled.div`
   height: 100%;
   overflow: hidden;
   gap: 20px;
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
   .img-wrapper {
     width: 50%;
     height: 100%;
@@ -260,7 +260,6 @@ const Wrapper = styled.div`
     overflow-y: scroll;
     img {
       width: 100%;
-      aspect-ratio: 1;
       border: 1px solid #d9d9d9;
       border-radius: 5px;
       flex-shrink: 0;
@@ -336,7 +335,6 @@ const Wrapper = styled.div`
       /* flex-shrink: 0; */
       img {
         width: calc(50% - 10px);
-        aspect-ratio: 1;
         /* aspect-ratio: 1; */
       }
     }
