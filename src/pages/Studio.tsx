@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import CreateStudioGuide from "./CreateStudioGuide";
+import Loading from "../components/Loading";
 
 const Studio = () => {
   const params = useParams();
@@ -9,7 +10,8 @@ const Studio = () => {
       {params?.studioId === "0" ? (
         <CreateStudioGuide />
       ) : (
-        <div> Studio id: {params?.studioId}</div>
+        <Loading />
+        // <div> Studio id: {params?.studioId}</div>
       )}
     </>
   );

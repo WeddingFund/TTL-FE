@@ -5,6 +5,7 @@ import { useSearchContext } from "../context/SearchContext";
 import Icon from "../components/Icon";
 import Tag from "../components/Tag";
 import EXImg from "../assets/tatto-example.jpeg";
+import Loading from "../components/Loading";
 
 type Category = {
   id: number;
@@ -163,7 +164,10 @@ const Feed = () => {
 
   return (
     <Wrapper>
-      {posts.length > 0 &&
+      {posts.length === 0 ? (
+        <Loading />
+      ) : (
+        posts.length > 0 &&
         posts.map((post) => (
           <Link to={`/post/${post.id}`} key={post.id}>
             <Post>
@@ -190,12 +194,15 @@ const Feed = () => {
               </div>
             </Post>
           </Link>
-        ))}
+        ))
+      )}
     </Wrapper>
   );
 };
 
 const Wrapper = styled.div`
+  width: 100%;
+  height: 100%;
   padding: 30px;
   display: flex;
   flex-wrap: wrap;

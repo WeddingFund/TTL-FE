@@ -4,6 +4,7 @@ import styled from "styled-components";
 import Icon from "../components/Icon";
 import Tag from "../components/Tag";
 import Input from "../components/Input";
+import Loading from "../components/Loading";
 import EXImg from "../assets/tatto-example.jpeg";
 
 type Category = {
@@ -188,54 +189,60 @@ const Post = () => {
 
   return (
     <Wrapper>
-      <div className="img-wrapper">
-        {post?.images.map((img, i) => (
-          <img src={img} alt={img} key={i} />
-        ))}
-      </div>
-      <div className="contents">
-        <div className="post">
-          <NavLink to={`/studio/${studio?.id}`}>
-            <div className="studio">
-              <img src={EXImg} alt="exex" />
-              {studio?.name}
-            </div>
-          </NavLink>
-          <div className="counts">
-            <div className="info">
-              <Icon name="Heart" size={20} />
-              {post?.likeCount}
-            </div>
-            <div className="info">
-              <Icon name="Eye" size={20} />
-              {post?.viewCount}
-            </div>
+      {!post || !studio ? (
+        <Loading />
+      ) : (
+        <>
+          <div className="img-wrapper">
+            {post?.images.map((img, i) => (
+              <img src={img} alt={img} key={i} />
+            ))}
           </div>
-          <div className="content">
-            <div className="desc">{post?.content}</div>
-            <div className="tags">
-              {post?.categories.map((tag) => (
-                <Tag key={tag.id} name={tag.code} />
+          <div className="contents">
+            <div className="post">
+              <NavLink to={`/studio/${studio?.id}`}>
+                <div className="studio">
+                  <img src={EXImg} alt="exex" />
+                  {studio?.name}
+                </div>
+              </NavLink>
+              <div className="counts">
+                <div className="info">
+                  <Icon name="Heart" size={20} />
+                  {post?.likeCount}
+                </div>
+                <div className="info">
+                  <Icon name="Eye" size={20} />
+                  {post?.viewCount}
+                </div>
+              </div>
+              <div className="content">
+                <div className="desc">{post?.content}</div>
+                <div className="tags">
+                  {post?.categories.map((tag) => (
+                    <Tag key={tag.id} name={tag.code} />
+                  ))}
+                </div>
+              </div>
+            </div>
+            <div className="comments">
+              <div className="comment-header">{`Comments ${comments.length}`}</div>
+              {comments.map((comment) => (
+                <div className="comment" key={comment.id}>
+                  {comment.content}
+                </div>
               ))}
+              <Input
+                placeholder="Add comment"
+                value={myComment}
+                onChange={(e) => setMyComment(e.target.value)}
+                onEnter={submitComment}
+              />
+              {/* 내 게시글일 때 수정 버튼 추가 */}
             </div>
           </div>
-        </div>
-        <div className="comments">
-          <div className="comment-header">{`Comments ${comments.length}`}</div>
-          {comments.map((comment) => (
-            <div className="comment" key={comment.id}>
-              {comment.content}
-            </div>
-          ))}
-          <Input
-            placeholder="Add comment"
-            value={myComment}
-            onChange={(e) => setMyComment(e.target.value)}
-            onEnter={submitComment}
-          />
-          {/* 내 게시글일 때 수정 버튼 추가 */}
-        </div>
-      </div>
+        </>
+      )}
     </Wrapper>
   );
 };
