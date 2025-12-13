@@ -205,6 +205,13 @@ const Wrapper = styled.div`
     text-decoration: none;
     color: inherit;
   }
+  @media ${({ theme }) => theme.device.mobile} {
+    width: 100%;
+    padding: 0;
+    a {
+      width: calc(50% - 10px);
+    }
+  }
 `;
 
 const Post = styled.div`
@@ -250,6 +257,18 @@ const Post = styled.div`
       display: flex;
       align-items: center;
       gap: 2px;
+    }
+  }
+  @media ${({ theme }) => theme.device.mobile} {
+    width: 100%;
+    height: auto;
+    .img-container {
+      width: 100%;
+      height: 120px;
+    }
+    .tags {
+      height: 40px;
+      overflow: hidden;
     }
   }
 `;

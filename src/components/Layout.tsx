@@ -135,6 +135,10 @@ const SearchHeader = styled.div`
   justify-content: flex-end;
   gap: 11px;
   position: relative;
+  @media ${({ theme }) => theme.device.mobile} {
+    border-bottom: 0.5px solid ${({ theme }) => theme.colors.light.border};
+    padding: 30px 20px;
+  }
 `;
 
 const FilterBtn = styled.button`
@@ -157,12 +161,24 @@ const BodyWrapper = styled.div`
   display: flex;
   gap: 20px;
   padding: 30px 30px 30px 20px;
+  @media ${({ theme }) => theme.device.mobile} {
+    flex-direction: column-reverse;
+    padding: 0;
+    height: calc(100% - 40px);
+    gap: 0;
+  }
 `;
 
 const MenuBar = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10px;
+  @media ${({ theme }) => theme.device.mobile} {
+    flex-direction: row;
+    justify-content: center;
+    padding: 10px 0;
+    border-top: 0.5px solid ${({ theme }) => theme.colors.light.border};
+  }
 `;
 const MenuItem = styled(NavLink)`
   width: 60px;
@@ -183,6 +199,13 @@ const ContentWrapper = styled.div`
   height: calc(100vh - 120px);
   box-shadow: 0 0 2px 2px rgba(217, 217, 217, 0.25);
   border-radius: 10px;
+  overflow: auto;
+  @media ${({ theme }) => theme.device.mobile} {
+    box-shadow: none;
+    border-radius: 0;
+    padding: 20px;
+    height: calc(100vh - 140px);
+  }
 `;
 
 export default Layout;

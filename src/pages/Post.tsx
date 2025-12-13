@@ -321,6 +321,41 @@ const Wrapper = styled.div`
       }
     }
   }
+  @media ${({ theme }) => theme.device.mobile} {
+    flex-direction: column;
+    padding: 0;
+    gap: 10px;
+    overflow: auto;
+    .img-wrapper {
+      width: 100%;
+      /* height: auto; */
+      flex-direction: row;
+      flex-wrap: wrap;
+      height: auto;
+      overflow-y: visible;
+      /* flex-shrink: 0; */
+      img {
+        width: calc(50% - 10px);
+        aspect-ratio: 1;
+        /* aspect-ratio: 1; */
+      }
+    }
+    .contents {
+      width: 100%;
+      height: auto;
+      gap: 20px;
+      .post {
+        height: auto;
+      }
+      .comments {
+        height: auto;
+        input {
+          position: sticky;
+          bottom: 0;
+        }
+      }
+    }
+  }
 `;
 
 export default Post;

@@ -89,6 +89,21 @@ const Box = styled.div`
       }
     }
   }
+  @media ${({ theme }) => theme.device.mobile} {
+    width: calc(100vw - 40px);
+    right: 20px;
+    top: 50px;
+    /* overflow: auto; */
+    margin-top: 10px;
+    right: 0;
+    width: 100%;
+    border-radius: 0;
+    box-shadow: none;
+    border-top: 0.5px solid ${({ theme }) => theme.colors.light.border};
+    border-left: none;
+    border-right: none;
+    border-bottom: 0.5px solid ${({ theme }) => theme.colors.light.border};
+  }
 `;
 
 const CheckBox = styled.input`
