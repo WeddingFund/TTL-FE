@@ -23,10 +23,14 @@ const router = createBrowserRouter([
       if (!isAuthenticated()) {
         return redirect("/landing");
       }
-      return null; // 사용자 정보 return 하면 각 페이지에서 접근 가능?
+      return null;
     },
     Component: Layout,
     children: [
+      {
+        index: true,
+        Component: Feed,
+      },
       {
         path: "feed",
         Component: Feed,
