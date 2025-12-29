@@ -121,12 +121,7 @@ const CreateStudio = () => {
               <Input placeholder="Instagram 추가 예정입니당~" />
             </div>
           </div>
-          <Button
-            className="submit-btn"
-            type="submit"
-            theme="dark"
-            shape="circle"
-          >
+          <Button className="submit-btn" type="submit" shape="circle">
             <Icon name="SaveFill" size={24} />
           </Button>
         </form>
@@ -228,6 +223,24 @@ const Wrapper = styled.div`
       position: fixed;
       bottom: 60px;
       right: 60px;
+    }
+  }
+
+  @media ${({ theme }) => theme.device.mobile} {
+    padding: 0;
+    form {
+      padding-bottom: 20px;
+      .upper-form .input-text-group .input-text {
+        flex-direction: column;
+        .title {
+          padding-left: 2px;
+        }
+      }
+      .submit-btn {
+        position: static;
+        margin-left: auto;
+        margin-top: 20px;
+      }
     }
   }
 `;
