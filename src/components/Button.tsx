@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 
 interface ButtonProps {
-  theme?: "dark" | "light";
+  variant?: "dark" | "light";
   shape?: "primary" | "circle";
 }
 
@@ -14,8 +14,8 @@ export const Button = styled.button<ButtonProps>`
   transition: 0.2s ease;
   width: fit-content;
 
-  ${({ theme }) => {
-    switch (theme) {
+  ${({ variant }) => {
+    switch (variant) {
       case "light":
         return css`
           background: #ffffff;
@@ -36,6 +36,11 @@ export const Button = styled.button<ButtonProps>`
           border-radius: 50%;
           height: 50px;
           width: 50px;
+          @media ${({ theme }) => theme.device.mobile} {
+            width: 30%;
+            height: 40px;
+            border-radius: 10px;
+          }
         `;
       default:
         return css`
