@@ -1,7 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { useSearchContext } from "../context/SearchContext";
 import Icon from "../components/Icon";
 import Tag from "../components/Tag";
 import EXImg from "../assets/tatto-example.jpeg";
@@ -27,15 +26,13 @@ interface Post {
 }
 
 const Feed = () => {
-  const { searchParams } = useSearchContext();
-
   const [posts, setPosts] = useState<Post[]>([]);
 
   /** @todo 게시글 조회 api 추가 */
   const search = useCallback(() => {
     setPosts([]);
 
-    console.log("검색: ", searchParams);
+    // console.log("검색: ", searchParams);
     setTimeout(
       () =>
         setPosts([
@@ -154,9 +151,9 @@ const Feed = () => {
             createdAt: "2025-10-08T14:00:00Z",
           },
         ]),
-      1000
+      1000,
     );
-  }, [searchParams]);
+  }, []);
 
   useEffect(() => {
     search();

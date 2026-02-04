@@ -49,6 +49,7 @@ footer, header, hgroup, menu, nav, section {
 
 body {
 	line-height: 1;
+    background-color: #000000;
 }
 
 ol, ul {
