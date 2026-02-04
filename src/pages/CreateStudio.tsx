@@ -56,7 +56,9 @@ const CreateStudio = () => {
 
   return (
     <Wrapper>
-      {
+      {submitting ? (
+        <div>스튜디오 생성 중...</div>
+      ) : (
         <form onSubmit={onSubmit}>
           <div className="form-title">Fill in profile details</div>
           <div className="upper-form">
@@ -122,7 +124,7 @@ const CreateStudio = () => {
             <Icon name="SaveFill" size={24} />
           </Button>
         </form>
-      }
+      )}
     </Wrapper>
   );
 };
