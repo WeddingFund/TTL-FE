@@ -3,7 +3,6 @@ import styled from "styled-components";
 import Input from "../components/Input";
 import { Button } from "../components/Button";
 import Icon from "../components/Icon";
-import Loading from "../components/Loading";
 
 interface StudioInfo {
   name: string;
@@ -38,7 +37,7 @@ const CreateStudio = () => {
   }, []);
 
   const onChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
     setStudioInfo((prev) => ({
@@ -57,9 +56,7 @@ const CreateStudio = () => {
 
   return (
     <Wrapper>
-      {submitting ? (
-        <Loading />
-      ) : (
+      {
         <form onSubmit={onSubmit}>
           <div className="form-title">Fill in profile details</div>
           <div className="upper-form">
@@ -125,7 +122,7 @@ const CreateStudio = () => {
             <Icon name="SaveFill" size={24} />
           </Button>
         </form>
-      )}
+      }
     </Wrapper>
   );
 };

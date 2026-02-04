@@ -4,7 +4,7 @@ import styled from "styled-components";
 import Icon from "../components/Icon";
 import Tag from "../components/Tag";
 import EXImg from "../assets/tatto-example.jpeg";
-import Loading from "../components/Loading";
+import { useLoading } from "../context/LoadingContext";
 
 type Category = {
   id: number;
@@ -26,134 +26,135 @@ interface Post {
 }
 
 const Feed = () => {
+  const { setLoading } = useLoading();
   const [posts, setPosts] = useState<Post[]>([]);
 
   /** @todo 게시글 조회 api 추가 */
   const search = useCallback(() => {
     setPosts([]);
+    setLoading(true);
 
     // console.log("검색: ", searchParams);
-    setTimeout(
-      () =>
-        setPosts([
-          {
-            id: 1,
-            content:
-              "어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 v 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구",
-            categories: [
-              {
-                id: 1,
-                type: "GENRE",
-                code: "OLD_SCHOOL",
-              },
-              {
-                id: 2,
-                type: "GENRE",
-                code: "GENRE_EX",
-              },
-            ],
-            images: [EXImg],
-            isLiked: false,
-            likeCount: 131,
-            viewCount: 1300,
-            isOwner: true,
-            updatedAt: "2025-10-08T14:00:00Z",
-            createdAt: "2025-10-08T14:00:00Z",
-          },
-          {
-            id: 2,
-            content: "어쩌구 저쩌구",
-            categories: [
-              {
-                id: 1,
-                type: "GENRE",
-                code: "OLD_SCHOOL",
-              },
-            ],
-            images: [EXImg],
-            isLiked: false,
-            likeCount: 131,
-            viewCount: 1300,
-            isOwner: true,
-            updatedAt: "2025-10-08T14:00:00Z",
-            createdAt: "2025-10-08T14:00:00Z",
-          },
-          {
-            id: 3,
-            content: "어쩌구 저쩌구",
-            categories: [
-              {
-                id: 1,
-                type: "GENRE",
-                code: "OLD_SCHOOL",
-              },
-            ],
-            images: [EXImg],
-            isLiked: false,
-            likeCount: 131,
-            viewCount: 1300,
-            isOwner: true,
-            updatedAt: "2025-10-08T14:00:00Z",
-            createdAt: "2025-10-08T14:00:00Z",
-          },
-          {
-            id: 4,
-            content: "어쩌구 저쩌구",
-            categories: [
-              {
-                id: 1,
-                type: "GENRE",
-                code: "OLD_SCHOOL",
-              },
-            ],
-            images: [EXImg],
-            isLiked: false,
-            likeCount: 131,
-            viewCount: 1300,
-            isOwner: true,
-            updatedAt: "2025-10-08T14:00:00Z",
-            createdAt: "2025-10-08T14:00:00Z",
-          },
-          {
-            id: 5,
-            content: "어쩌구 저쩌구",
-            categories: [
-              {
-                id: 1,
-                type: "GENRE",
-                code: "OLD_SCHOOL",
-              },
-            ],
-            images: [EXImg],
-            isLiked: false,
-            likeCount: 131,
-            viewCount: 1300,
-            isOwner: true,
-            updatedAt: "2025-10-08T14:00:00Z",
-            createdAt: "2025-10-08T14:00:00Z",
-          },
-          {
-            id: 6,
-            content: "어쩌구 저쩌구",
-            categories: [
-              {
-                id: 1,
-                type: "GENRE",
-                code: "OLD_SCHOOL",
-              },
-            ],
-            images: [EXImg],
-            isLiked: false,
-            likeCount: 131,
-            viewCount: 1300,
-            isOwner: true,
-            updatedAt: "2025-10-08T14:00:00Z",
-            createdAt: "2025-10-08T14:00:00Z",
-          },
-        ]),
-      1000,
-    );
-  }, []);
+    setTimeout(() => {
+      setPosts([
+        {
+          id: 1,
+          content:
+            "어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 v 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구 어쩌구 저쩌구",
+          categories: [
+            {
+              id: 1,
+              type: "GENRE",
+              code: "OLD_SCHOOL",
+            },
+            {
+              id: 2,
+              type: "GENRE",
+              code: "GENRE_EX",
+            },
+          ],
+          images: [EXImg],
+          isLiked: false,
+          likeCount: 131,
+          viewCount: 1300,
+          isOwner: true,
+          updatedAt: "2025-10-08T14:00:00Z",
+          createdAt: "2025-10-08T14:00:00Z",
+        },
+        {
+          id: 2,
+          content: "어쩌구 저쩌구",
+          categories: [
+            {
+              id: 1,
+              type: "GENRE",
+              code: "OLD_SCHOOL",
+            },
+          ],
+          images: [EXImg],
+          isLiked: false,
+          likeCount: 131,
+          viewCount: 1300,
+          isOwner: true,
+          updatedAt: "2025-10-08T14:00:00Z",
+          createdAt: "2025-10-08T14:00:00Z",
+        },
+        {
+          id: 3,
+          content: "어쩌구 저쩌구",
+          categories: [
+            {
+              id: 1,
+              type: "GENRE",
+              code: "OLD_SCHOOL",
+            },
+          ],
+          images: [EXImg],
+          isLiked: false,
+          likeCount: 131,
+          viewCount: 1300,
+          isOwner: true,
+          updatedAt: "2025-10-08T14:00:00Z",
+          createdAt: "2025-10-08T14:00:00Z",
+        },
+        {
+          id: 4,
+          content: "어쩌구 저쩌구",
+          categories: [
+            {
+              id: 1,
+              type: "GENRE",
+              code: "OLD_SCHOOL",
+            },
+          ],
+          images: [EXImg],
+          isLiked: false,
+          likeCount: 131,
+          viewCount: 1300,
+          isOwner: true,
+          updatedAt: "2025-10-08T14:00:00Z",
+          createdAt: "2025-10-08T14:00:00Z",
+        },
+        {
+          id: 5,
+          content: "어쩌구 저쩌구",
+          categories: [
+            {
+              id: 1,
+              type: "GENRE",
+              code: "OLD_SCHOOL",
+            },
+          ],
+          images: [EXImg],
+          isLiked: false,
+          likeCount: 131,
+          viewCount: 1300,
+          isOwner: true,
+          updatedAt: "2025-10-08T14:00:00Z",
+          createdAt: "2025-10-08T14:00:00Z",
+        },
+        {
+          id: 6,
+          content: "어쩌구 저쩌구",
+          categories: [
+            {
+              id: 1,
+              type: "GENRE",
+              code: "OLD_SCHOOL",
+            },
+          ],
+          images: [EXImg],
+          isLiked: false,
+          likeCount: 131,
+          viewCount: 1300,
+          isOwner: true,
+          updatedAt: "2025-10-08T14:00:00Z",
+          createdAt: "2025-10-08T14:00:00Z",
+        },
+      ]);
+      setLoading(false);
+    }, 1000);
+  }, [setLoading]);
 
   useEffect(() => {
     search();
@@ -161,10 +162,7 @@ const Feed = () => {
 
   return (
     <Wrapper>
-      {posts.length === 0 ? (
-        <Loading />
-      ) : (
-        posts.length > 0 &&
+      {posts.length > 0 &&
         posts.map((post) => (
           <Link to={`/post/${post.id}`} key={post.id}>
             <Post>
@@ -191,8 +189,7 @@ const Feed = () => {
               </div>
             </Post>
           </Link>
-        ))
-      )}
+        ))}
     </Wrapper>
   );
 };

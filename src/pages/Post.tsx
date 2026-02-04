@@ -4,7 +4,6 @@ import styled from "styled-components";
 import Icon from "../components/Icon";
 import Tag from "../components/Tag";
 import Input from "../components/Input";
-import Loading from "../components/Loading";
 import EXImg from "../assets/tatto-example.jpeg";
 
 type Category = {
@@ -88,7 +87,7 @@ const Post = () => {
           updatedAt: "2025-10-08T14:00:00Z",
           createdAt: "2025-10-08T14:00:00Z",
         }),
-      1000
+      1000,
     );
   }, [params]);
 
@@ -110,7 +109,7 @@ const Post = () => {
           updatedAt: "2025-10-08T14:00:00Z",
           createdAt: "2025-10-08T14:00:00Z",
         }),
-      1000
+      1000,
     );
   }, [post]);
 
@@ -165,7 +164,7 @@ const Post = () => {
             createdAt: "2025-10-08T14:00:00Z",
           },
         ]),
-      1000
+      1000,
     );
   }, [post]);
 
@@ -189,9 +188,7 @@ const Post = () => {
 
   return (
     <Wrapper>
-      {!post || !studio ? (
-        <Loading />
-      ) : (
+      {
         <>
           <div className="img-wrapper">
             {post?.images.map((img, i) => (
@@ -242,7 +239,7 @@ const Post = () => {
             </div>
           </div>
         </>
-      )}
+      }
     </Wrapper>
   );
 };

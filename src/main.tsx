@@ -6,12 +6,15 @@ import GlobalStyle from "./styles/GlobalStyle";
 
 import router from "./router";
 import { theme } from "./styles/theme";
+import { LoadingProvider } from "./context/LoadingContext";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <RouterProvider router={router} />
+      <LoadingProvider>
+        <GlobalStyle />
+        <RouterProvider router={router} />
+      </LoadingProvider>
     </ThemeProvider>
-  </StrictMode>
+  </StrictMode>,
 );

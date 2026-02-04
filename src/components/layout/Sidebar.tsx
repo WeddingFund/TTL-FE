@@ -108,7 +108,7 @@ const Sidebar = () => {
     { path: "/", label: "피드", icon: Home },
     { path: "/nearby", label: "주변", icon: MapPin },
     { path: "/alerts", label: "알림", icon: Bell },
-    { path: "/studio/create", label: "스튜디오", icon: PenTool },
+    { path: "/studio/0", label: "스튜디오", icon: PenTool },
     { path: "/settings", label: "설정", icon: Settings },
   ];
 
