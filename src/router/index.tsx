@@ -1,5 +1,5 @@
 import { createBrowserRouter, redirect } from "react-router-dom";
-import Layout from "../components/Layout";
+import Layout from "../components/layout/Layout";
 import Alerts from "../pages/Alerts";
 import Feed from "../pages/Feed";
 import Landing from "../pages/Landing";
@@ -9,55 +9,63 @@ import Map from "../pages/Map";
 import Post from "../pages/Post";
 import CreateStudio from "../pages/CreateStudio";
 
-const isAuthenticated = () => {
-  return Boolean(localStorage.getItem("login")); // 실제 앱에선 쿠키나 전역 상태 사용
+const requireAuth = async () => {
+  const isLoggedIn = Boolean(localStorage.getItem("login"));
+  // 나중에 await fetch("/me") 등 처리
+  if (!isLoggedIn) {
+    throw redirect("/landing");
+  }
+  return null;
 };
+
+// @todo 타투이스트인지 확인
+// const requireArtist = async () => {
+//   const user = getUser();
+//   if (user.role !== "ARTIST") {
+//     throw redirect("/");
+//   }
+//   return null;
+// };
+
 const router = createBrowserRouter([
   {
     path: "/landing",
-    Component: Landing,
+    element: <Landing />,
   },
   {
     path: "/",
-    loader: () => {
-      if (!isAuthenticated()) {
-        return redirect("/landing");
-      }
-      return null;
-    },
-    Component: Layout,
+    loader: requireAuth,
+    element: <Layout />,
+    // errorElement: <GlobalError />, //@todo error boundary 추가
     children: [
       {
         index: true,
-        Component: Feed,
+        element: <Feed />,
       },
       {
-        path: "feed",
-        Component: Feed,
-      },
-      {
-        path: "mypage",
-        Component: MyPage,
+        path: "settings",
+        element: <MyPage />,
       },
       {
         path: "alerts",
-        Component: Alerts,
+        element: <Alerts />,
       },
       {
         path: "studio/:studioId",
-        Component: Studio,
+        element: <Studio />,
       },
       {
         path: "studio/create",
-        Component: CreateStudio,
+        // loader: requireArtist,
+        element: <CreateStudio />,
       },
       {
-        path: "map",
-        Component: Map,
+        path: "nearby",
+        element: <Map />,
       },
       {
         path: "post/:postId",
-        Component: Post,
+        element: <Post />,
       },
     ],
   },
